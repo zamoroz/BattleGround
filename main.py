@@ -15,8 +15,7 @@ def characteristics(player):
     typing("Ловкость " + str(player.dexterity))
     typing("Защита " + str(player.protection))
     typing("Здоровье " + str(player.health))
-    typing("Уровень " + str(player.lvl))
-    typing("Опыта до следующего уровня " + str(100 - player.exp))
+    typing("Опыта до уровня " + str(100 - player.exp))
 
 def race_request():
     typing("Кто ты?")

@@ -1,3 +1,5 @@
+import sys, time
+
 class Player:
 
     strenght: int #сила
@@ -37,6 +39,7 @@ class Player:
         self.exp += i
     
     def levelUp(self):
+        typing("Поздравляю! вы повысили уровень, все характеристики выросли.")
         self.lvl += 1
         self.exp = 0
         self.add_dexterity(1 + int(0.5 * self.lvl))
@@ -49,3 +52,10 @@ class Player:
     
     def remove_item(self, item):
         pass
+
+def typing(lst):
+    for character in lst:
+        sys.stdout.write(character)
+        sys.stdout.flush()
+        time.sleep(0.04)
+    print("")

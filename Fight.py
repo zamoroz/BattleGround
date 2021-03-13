@@ -44,11 +44,11 @@ class Fight:
 
         if enemy.health <= 0:
             typing("Вы убили " + enemy.name)
-            player.add_exp(15)
+            print("-"*30)
+            player.add_exp(30)
+            if player.exp >= 100:
+                player.levelUp()
             return
-
-        if player.exp >= 100:
-            player.levelUp()
         self.fight()
 
     def direction(self):
@@ -77,6 +77,8 @@ class Fight:
                     typing("Ты убежал от монстра "+ enemy.name + ".")
                     print("-"*30)
                     player.add_exp(5)
+                    if player.exp >= 100:
+                        player.levelUp()
             else:
                 typing("Ты что-то напутал, давай попробуем еще раз.")
                 solve_request()
