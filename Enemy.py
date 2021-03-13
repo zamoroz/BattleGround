@@ -7,7 +7,7 @@ class Enemy:
     protection: int #защита
     health: int #здоровье
     name: str #имя
-    enemy_names_list = ["Гоблин", "Хобгоблин", "Слизь", "Волк", "Крыса", "Зомби", "Разбойник"]
+    enemy_names_list = ["Гоблин", "Хобгоблин", "Слизь", "Волк", "Крыса", "Зомби"]
     
     def __init__(self):
         self.strenght = randint(1,10)
