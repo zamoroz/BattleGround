@@ -26,11 +26,11 @@ def race_request():
     races = ["1", "2", "3"]
     if race in races:
         if race == "1":
-            player.add_strenght(5)
+            player.add_strenght(2)
         if race == "2":
-            player.add_protection(5)
+            player.add_protection(2)
         if race == "3":
-            player.add_dexterity(5)
+            player.add_dexterity(2)
     else: 
         typing("Ты что-то напутал, давай попробуем еще раз.")
         race_request()
