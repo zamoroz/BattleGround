@@ -70,7 +70,7 @@ class Fight:
                 typing("Начинается бой с " + enemy.name)
                 self.fight()
             elif solve == "2":
-                if player.dexterity < enemy.accuaracy:
+                if player.dexterity <= enemy.accuaracy:
                     typing("Убежать не удалось, придется сражаться...")
                     self.fight()
                 else:
