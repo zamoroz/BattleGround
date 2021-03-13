@@ -61,24 +61,26 @@ class Fight:
         typing("Защита " + str(enemy.protection))
         typing("Здоровье " + str(enemy.health))
         print("-"*30)
-        typing("Что будешь делать?")
         def solve_request():
+            typing("Что будешь делать?")
             print("1) Сражаться")
             print("2) Бежать")
             solve = input("> ")
-            if solve == "1":
-                typing("Начинается бой с " + enemy.name)
-                self.fight()
-            elif solve == "2":
-                if player.dexterity <= enemy.accuaracy:
-                    typing("Убежать не удалось, придется сражаться...")
+            solves = ['1', '2']
+            if solve in solves:
+                if solve == "1":
+                    typing("Начинается бой с " + enemy.name)
                     self.fight()
-                else:
-                    typing("Ты убежал от монстра "+ enemy.name + ".")
-                    print("-"*30)
-                    player.add_exp(5)
-                    if player.exp >= 100:
-                        player.levelUp()
+                elif solve == "2":
+                    if player.dexterity <= enemy.accuaracy:
+                        typing("Убежать не удалось, придется сражаться...")
+                        self.fight()
+                    else:
+                        typing("Ты убежал от монстра "+ enemy.name + ".")
+                        print("-"*30)
+                        player.add_exp(5)
+                        if player.exp >= 100:
+                            player.levelUp()
             else:
                 typing("Ты что-то напутал, давай попробуем еще раз.")
                 solve_request()

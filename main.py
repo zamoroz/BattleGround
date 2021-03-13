@@ -42,12 +42,14 @@ def menu():
     print("3) Искать сражений")
     print("4) Посмотреть инвентарь")
     answer = input("> ")
-    if answer == '1':
-        characteristics(player)
-    elif answer == '2':
-        Adventures.Adventures(player)
-    elif answer == '3':
-        Fight.Fight(player)
+    answers = ['1', '2', '3']
+    if answer in answers:
+        if answer == '1':
+            characteristics(player)
+        elif answer == '2':
+            Adventures.Adventures(player)
+        elif answer == '3':
+            Fight.Fight(player)
     else: 
         typing("Ты что-то напутал, давай попробуем еще раз.")
     menu()

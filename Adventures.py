@@ -32,25 +32,29 @@ class Adventures:
         count = randint(1,10)
         typing("Во время своих путешествий ты набрел на логово монстра: " + enemy.name)
         typing("Здесь обитает " + str(count) + " " + enemy.name)
-        typing("Что будем делать?")
-        print("1) Напасть")
-        print("2) Искать приключения дальше")
-        print("3) Выбрать другое действие")
-        answer = input("> ")
-        if answer == '1':
-            for i in range(count):
-                new_enemy = Enemy.Enemy(self.player.lvl)
-                new_enemy.set_name(enemy.name)
-                Fight.Fight(self.player, new_enemy)
-            self.reward()
-            return
-        if answer == '2':
-            self.__init__(self.player)
-        if answer == '3':
-            return
-        else:
-            typing("Ты что-то напутал, давай попробуем еще раз.")
-            self.cave(enemy)
+        def solve_request():
+            typing("Что будем делать?")
+            print("1) Напасть")
+            print("2) Искать приключения дальше")
+            print("3) Выбрать другое действие")
+            solve = input("> ")
+            solves = ['1', '2', '3']
+            if solve in solves:
+                if solve == '1':
+                    for i in range(count):
+                        new_enemy = Enemy.Enemy(self.player.lvl)
+                        new_enemy.set_name(enemy.name)
+                        Fight.Fight(self.player, new_enemy)
+                    self.reward()
+                    return
+                if solve == '2':
+                    self.__init__(self.player)
+                if solve == '3':
+                    return
+            else:
+                typing("Ты что-то напутал, давай попробуем еще раз.")
+                solve_request()
+        solve_request()
     
     def reward(self):
         pass
