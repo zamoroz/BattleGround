@@ -14,7 +14,7 @@ class Fight:
     def __init__(self, player, enemy=None):
         self.player = player
         if enemy is None:
-            self.enemy = Enemy.Enemy()
+            self.enemy = Enemy.Enemy(self.player.lvl)
         else:
             self.enemy = enemy
         self.direction()

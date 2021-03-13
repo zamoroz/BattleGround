@@ -20,7 +20,7 @@ class Adventures:
         if place == "Пещера":
             self.cave()
         elif place == "Город":
-            self.__init__(player)
+            self.__init__(self.player)
         elif place == "Логово монстров":
             self.lair()
         elif place == "Лагерь разбойников":
@@ -28,7 +28,7 @@ class Adventures:
 
     def cave(self, enemy = None):
         if enemy is None:
-            enemy = Enemy.Enemy()
+            enemy = Enemy.Enemy(self.player.lvl)
         count = randint(1,10)
         typing("Во время своих путешествий вы набрели на пещеру монстра: " + enemy.name)
         typing("Здесь обитает " + str(count) + " " + enemy.name)
@@ -39,7 +39,7 @@ class Adventures:
         answer = input("> ")
         if answer == '1':
             for i in range(count):
-                new_enemy = Enemy.Enemy()
+                new_enemy = Enemy.Enemy(self.player.lvl)
                 new_enemy.set_name(enemy.name)
                 Fight.Fight(self.player, new_enemy)
             self.reward()

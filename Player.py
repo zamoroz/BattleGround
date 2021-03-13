@@ -15,7 +15,7 @@ class Player:
         self.health = 100
         self.name = ""
         self.exp = 0
-        self.lvl = 1
+        self.lvl = 0
         self.inventory = []
     
     def add_strenght(self, i):
@@ -39,10 +39,10 @@ class Player:
     def levelUp(self):
         self.lvl += 1
         self.exp = 0
-        self.add_dexterity(self, 1)
-        self.add_health(self, 10)
-        self.add_protection(self, 1)
-        self.add_strenght(self, 1)
+        self.add_dexterity(1 + int(0.5 * self.lvl))
+        self.add_health(30)
+        self.add_protection(1 + int(0.5 * self.lvl))
+        self.add_strenght(1 + int(0.5 * self.lvl))
     
     def add_item(self, item):
         self.inventory.append(item)
