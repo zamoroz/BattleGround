@@ -43,6 +43,7 @@ class Adventures:
                 new_enemy.set_name(enemy.name)
                 Fight.Fight(self.player, new_enemy)
             self.reward()
+            return
         if answer == '2':
             self.__init__(self.player)
         if answer == '3':
