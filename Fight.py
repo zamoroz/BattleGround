@@ -83,5 +83,6 @@ class Fight:
                             player.levelUp()
             else:
                 typing("Ты что-то напутал, давай попробуем еще раз.")
+                print("-"*30)
                 solve_request()
         solve_request()
