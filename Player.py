@@ -1,6 +1,8 @@
 import sys, time
+import Inventory
 
-class Player:
+
+class Player :
 
     strenght: int #сила
     dexterity: int #ловкость
@@ -18,7 +20,7 @@ class Player:
         self.name = ""
         self.exp = 0
         self.lvl = 0
-        self.inventory = []
+        self.inventory = Inventory.Inventory()
     
     def add_strenght(self, i):
         self.strenght += i

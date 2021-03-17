@@ -56,7 +56,7 @@ class main():
         print("3) Искать сражений")
         print("4) Посмотреть инвентарь")
         answer = input("> ")
-        answers = ['1', '2', '3']
+        answers = ['1', '2', '3', '4']
         if answer in answers:
             if answer == '1':
                 self.characteristics()
@@ -64,6 +64,8 @@ class main():
                 Adventures.Adventures(self.player)
             elif answer == '3':
                 Fight.Fight(self.player)
+            elif answer == '4':
+               print(self.player.inventory)
         else: 
             typing("Ты что-то напутал, давай попробуем еще раз.")
             print("-"*30)
