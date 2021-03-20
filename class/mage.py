@@ -1,14 +1,8 @@
-import sys, time
+import sys
 sys.path.append('../')
 from random import choice
 from Player import Player
-
-def typing(lst):
-    for character in lst:
-        sys.stdout.write(character)
-        sys.stdout.flush()
-        time.sleep(0.04)
-    print("")
+from typing import typing
 
 class mage(Player):
     

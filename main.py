@@ -1,14 +1,8 @@
 import Fight, Adventures
-import sys, time
+import sys
+from typing import typing
 sys.path.append('class')
 import mage, warrior, assasin
-
-def typing(lst):
-    for character in lst:
-        sys.stdout.write(character)
-        sys.stdout.flush()
-        time.sleep(0.04)
-    print("")
 
 class main():
 

@@ -1,14 +1,7 @@
-from random import choice, randint
-import sys, time
+from random import randint
+from typing import typing
 import Fight
 import Enemy
-
-def typing(lst):
-    for character in lst:
-        sys.stdout.write(character)
-        sys.stdout.flush()
-        time.sleep(0.04)
-    print("")
 
 class Adventures:
 
