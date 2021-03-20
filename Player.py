@@ -1,5 +1,12 @@
 import sys, time
 
+def typing(lst):
+    for character in lst:
+        sys.stdout.write(character)
+        sys.stdout.flush()
+        time.sleep(0.04)
+    print("")
+
 class Player:
 
     strenght: int #сила
@@ -52,10 +59,3 @@ class Player:
     
     def remove_item(self, item):
         pass
-
-def typing(lst):
-    for character in lst:
-        sys.stdout.write(character)
-        sys.stdout.flush()
-        time.sleep(0.04)
-    print("")
