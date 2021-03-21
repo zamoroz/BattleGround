@@ -38,6 +38,7 @@ class warrior(Player):
             return damage
         else:
             typing("Не хватает ярости.")
+            return 0
 
     def skill3(self):
         if self.rage >= 25:
@@ -47,7 +48,11 @@ class warrior(Player):
             return damage
         else:
             typing("Не хватает ярости.")
+            return 0
 
+    def short_info(self):
+        return "Здоровье: " + str(self.health) + "\nЯрость: " + str(self.rage)
+        
     def __str__(self):
         characteristics = { "Имя": self.name, "Уровень": self.lvl, "Здоровье": self.health, "Ярость": self.rage, "Сила": self.strenght, "Ловкость": self.dexterity, "Точность": self.accuaracy, "Интелект":self.intelligence, "Защита": self.protection, "Опыта до уровня": 100-self.exp}
         out = ''

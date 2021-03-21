@@ -49,6 +49,9 @@ class mage(Player):
             return damage
         else:
             typing("Не хватает маны.")
+
+    def short_info(self):
+        return "Здоровье: " + str(self.health) + "\nМана: " + str(self.mana)
         
     def __str__(self):
         characteristics = { "Имя": self.name, "Уровень": self.lvl, "Здоровье": self.health, "Мана": self.mana, "Сила": self.strenght, "Ловкость": self.dexterity, "Точность": self.accuaracy, "Интелект":self.intelligence, "Защита": self.protection, "Опыта до уровня": 100-self.exp}

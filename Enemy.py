@@ -1,9 +1,11 @@
 from random import randint
 
-class Enemy:
+class Enemy():
     
     def __init__(self, lvl):
         self.lvl = randint(lvl-3, lvl+3)
+        if self.lvl < 0:
+            self.lvl = 0
         self.strenght = randint(1,5) + self.lvl
         self.dexterity = randint(1,5) + self.lvl
         self.accuaracy = randint(1,5) + self.lvl
@@ -12,6 +14,9 @@ class Enemy:
         
     def add_health(self, i):
         self.health += i
+
+    def short_info(self):
+        return "Здоровье врага: " + str(self.health)
 
     def __str__(self):
         characteristics = { "Тип": self.type, "Уровень": self.lvl, "Здоровье": self.health, "Сила": self.strenght, "Ловкость": self.dexterity, "Точность": self.accuaracy, "Защита": self.protection}

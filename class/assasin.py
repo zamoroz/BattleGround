@@ -47,6 +47,9 @@ class assasin(Player):
         else:
             typing("Не хватает ярости.")
 
+    def short_info(self):
+        return "Здоровье: " + str(self.health) + "\nЭнергия: " + str(self.energy)
+
     def __str__(self):
         characteristics = { "Имя": self.name, "Уровень": self.lvl, "Здоровье": self.health, "Енергия": self.energy, "Сила": self.strenght, "Ловкость": self.dexterity, "Точность": self.accuaracy, "Интелект":self.intelligence, "Защита": self.protection, "Опыта до уровня": 100-self.exp}
         out = ''
