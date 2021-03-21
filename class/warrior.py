@@ -25,7 +25,7 @@ class warrior(Player):
 
     def skill1(self):
         typing("Вы бьете врага.")
-        damage = 5 + self.lvl
+        damage = 5 + self.strenght
         self.add_rage(10)
         return damage
     
@@ -33,7 +33,7 @@ class warrior(Player):
     def skill2(self):
         if self.rage >= 15:
             typing("Вы наносите сильную атаку.")
-            damage = 10 + self.lvl
+            damage = 10 + self.strenght
             self.add_rage(-10)
             return damage
         else:
@@ -43,7 +43,7 @@ class warrior(Player):
     def skill3(self):
         if self.rage >= 25:
             typing("Вы наносите очень сильную атаку.")
-            damage = 20 + self.lvl
+            damage = 20 + self.strenght
             self.add_rage(-20)
             return damage
         else:

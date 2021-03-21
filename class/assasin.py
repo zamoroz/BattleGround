@@ -25,14 +25,14 @@ class assasin(Player):
 
     def skill1(self):
         typing("Вы бьете врага.")
-        damage = 5 + self.lvl
+        damage = 5 + self.strenght
         self.add_energy(10)
         return damage
     
     def skill2(self):
         if self.energy >= 15:
             typing("Вы наносите сильную атаку.")
-            damage = 10 + self.lvl
+            damage = 10 + self.strenght
             self.add_energy(-15)
             return damage
         else:
@@ -41,7 +41,7 @@ class assasin(Player):
     def skill3(self):
         if self.energy >= 25:
             typing("Вы наносите очень сильную атаку.")
-            damage = 20 + self.lvl
+            damage = 20 + self.strenght
             self.add_energy(-25)
             return damage
         else:
