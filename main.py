@@ -25,15 +25,12 @@ class main():
             if race == "1":
                 self.player = mage.mage()
                 self.player.set_name(self.player_name)
-                self.player.add_health(20)
             if race == "2":
-                self.player.add_protection(2)
                 self.player = warrior.warrior()
                 self.player.set_name(self.player_name)
             if race == "3":
                 self.player = assasin.assasin()
                 self.player.set_name(self.player_name)
-                self.player.add_dexterity(2)
         else: 
             typing("Ты что-то напутал, давай попробуем еще раз.")
             print("-"*30)
