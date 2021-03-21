@@ -5,19 +5,21 @@ from Player import Player
 from typing import typing
 
 class mage(Player):
-    
-    mana: int
 
     def __init__(self):
         super().__init__()
-        self.mana = 100
+        self.max_mana = 100
+        self.mana = self.max_mana
     
     def add_mana(self, i):
         self.mana += i
+        if self.mana > self.max_mana:
+            self.mana = self.max_mana
     
     def levelUp(self):
         super().levelUp()
-        self.add_mana(30)
+        self.add_max_mana(10)
+        self.mana = self.max_mana
     
     def skill1(self):
         typing("Вы бьете врага посохом.")
