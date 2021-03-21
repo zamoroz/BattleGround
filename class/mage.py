@@ -6,6 +6,8 @@ from typing import typing
 
 class mage(Player):
 
+    elements  = ["огненный", "водяной", "каменный", "електрический"]
+
     def __init__(self):
         super().__init__()
         self.max_mana = 100
@@ -20,29 +22,31 @@ class mage(Player):
         super().levelUp()
         self.add_max_mana(10)
         self.mana = self.max_mana
+        self.add_intelligence(2)
     
+    def skill_dependence(self):
+        return "1) Обычная атака. \n2) Сильная атака. \n3)Очень сильная атака"
+
     def skill1(self):
-        typing("Вы бьете врага посохом.")
+        typing("Вы бьете врага.")
         damage = 5 + self.lvl
-        print("Нанесено урона: " + str(damage))
+        return damage
     
     def skill2(self):
         if self.mana >= 10:
-            elements  = ["огненный", "водяной", "каменный", "електрический"]
-            typing("Вы бросаете во врага малый " + elements.choise() + " шар.")
+            typing("Вы бросаете во врага малый " + self.elements.choise() + " шар.")
             damage = 10 + self.lvl
-            print("Нанесено урона: " + str(damage))
             self.add_mana(-10)
+            return damage
         else:
             typing("Не хватает маны.")
 
     def skill3(self):
         if self.mana >= 20:
-            elements  = ["огненный", "водяной", "каменный", "електрический"]
-            typing("Вы бросаете во врага " + elements.choise() + " шар.")
+            typing("Вы бросаете во врага " + self.elements.choise() + " шар.")
             damage = 20 + self.lvl
-            print("Нанесено урона: " + str(damage))
             self.add_mana(-20)
+            return damage
         else:
             typing("Не хватает маны.")
         
