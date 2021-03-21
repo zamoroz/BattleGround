@@ -24,7 +24,7 @@ class mage(Player):
         self.mana = self.max_mana
         self.add_intelligence(2)
     
-    def skill_dependence(self):
+    def skill_description(self):
         return "1) Обычная атака. \n2) Сильная атака. \n3)Очень сильная атака"
 
     def skill1(self):

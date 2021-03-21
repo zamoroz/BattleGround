@@ -15,7 +15,12 @@ class assasin(Player):
         if self.energy > self.max_energy:
             self.energy = self.max_energy
 
-    def skill_dependence(self):
+    def levelUp(self):
+        super().levelUp()
+        self.add_dexterity(1)
+        self.add_strenght(1)
+
+    def skill_description(self):
         return "1) Обычная атака. \n2) Сильная атака. \n3)Очень сильная атака"
 
     def skill1(self):

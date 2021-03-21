@@ -15,9 +15,14 @@ class warrior(Player):
         if self.rage > self.max_rage:
             self.rage = self.max_rage
     
-    def skill_dependence(self):
-        return "1) Обычная атака. \n2) Сильная атака. \n3)Очень сильная атака"
+    def levelUp(self):
+        super().levelUp()
+        self.add_strenght(1)
+        self.add_protection(1)
         
+    def skill_description(self):
+        return "1) Обычная атака. \n2) Сильная атака. \n3)Очень сильная атака"
+
     def skill1(self):
         typing("Вы бьете врага.")
         damage = 5 + self.lvl
