@@ -1,6 +1,6 @@
 from typing import typing
 
-class Player:
+class Player():
 
     def __init__(self):
         self.strenght = 5
