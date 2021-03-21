@@ -25,12 +25,18 @@ class Player:
         self.health += i
         if self.health > self.max_health:
             self.health = self.max_health
+        elif self.health <= 0:
+            typing("Вы погибли!")
+            input()
     
     def set_name(self, name):
         self.name = name
     
     def add_exp(self, i):
         self.exp += i
+        if self.exp >= 100:
+            self.exp = 0
+            self.levelUp()
     
     def add_max_health(self, i):
         self.max_health += i

@@ -30,17 +30,10 @@ class Fight:
         typing(enemy.name + " нанес " + str(damage) + " урона тебе.")
         typing("Отсалось " + str(player.health))
 
-        if player.health <= 0:
-            print("-"*30)
-            typing("Вы погибли.")
-            input()
-
         if enemy.health <= 0:
             typing("Вы убили " + enemy.name)
             print("-"*30)
             player.add_exp(30)
-            if player.exp >= 100:
-                player.levelUp()
             return
         self.fight()
 
@@ -72,8 +65,6 @@ class Fight:
                         typing("Ты убежал от монстра "+ enemy.name + ".")
                         print("-"*30)
                         player.add_exp(5)
-                        if player.exp >= 100:
-                            player.levelUp()
             else:
                 typing("Ты что-то напутал, давай попробуем еще раз.")
                 print("-"*30)
