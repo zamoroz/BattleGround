@@ -1,13 +1,18 @@
+
 class Inventory(object):
     def __init__(self):
         self.items = {}
 
     def add_item(self, item):
-        self.items[item.name] = item
+        self.items[item] = item
 
     def drop_item(self, item):
         if item.name in self.items:
-            self.items.pop(item.name)
+            self.items.pop(item)
+
+    def use_item(self, item, target=None):
+        if item in self.items.values():
+            item.use_item(target)
 
     def __str__(self):
         out = '\t'.join(['Наименование предмета', 'Уровень предмета', 'Используемый?', 'Ловкость', 'Защита предмета',

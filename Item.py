@@ -13,7 +13,7 @@ class Item:
 
     def __init__(self):
         type_list = ["Броня", "Оружие", "Зелье"]
-        armor_list = ["Голова", "Перчатки", "Наруч", "Наплечник", "Нагрудник", "Штаны", "Обувь"]
+        armor_list = ["Голова", "Пояс" , "Нагрудник", "Штаны", "Обувь", "Зеркальце", "Чешуя", "Воля"]
         weapon_list = ["Меч", "Булава", "Копье", "Лук", "Кинжал"]
         potion_list = ["Зелье улучшения", "Зелье лечения", "Зелье опыта"]
         first_part_weapon_name = ["Мощный", "Острый", "Точный", "Крепкий", "Стальной", "Устрашающий"]
@@ -46,3 +46,9 @@ class Item:
         self.helth = health
         self.exp = exp
         self.applied = applied
+
+    def use_item(self):
+        if self.applied == True:
+            print('ispolzoval predmet :',self.name)
+        else:
+            print('predmet nelzya ispolzovat')

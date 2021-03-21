@@ -1,5 +1,5 @@
 import sys, time
-import Inventory
+import Inventory, Equipment
 
 
 class Player :
@@ -21,6 +21,7 @@ class Player :
         self.exp = 0
         self.lvl = 0
         self.inventory = Inventory.Inventory()
+        self.equipment = Equipment.Equipment()
     
     def add_strenght(self, i):
         self.strenght += i
@@ -53,7 +54,22 @@ class Player :
         self.inventory.append(item)
     
     def remove_item(self, item):
-        pass
+        self.inventory.drop_item(item)
+
+    def equip_item(self,item):
+        self.equipment.equip(item)
+        self.add_health(item.health)
+        self.add_health(item.protection)
+        self.add_health(item.dexterity)
+        self.add_health(item.strenght)
+    def takeoff_item(self,item):
+        self.equipment.takeoff_item(item)
+        self.add_health(-item.health)
+        self.add_health(-item.protection)
+        self.add_health(-item.dexterity)
+        self.add_health(-item.strenght)
+
+
 
 def typing(lst):
     for character in lst:
