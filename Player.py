@@ -6,6 +6,7 @@ class Player:
         self.strenght = 5
         self.dexterity = 5
         self.protection = 5
+        self.intelligence = 5
         self.max_health = 100
         self.health = self.max_health
         self.name = ""
@@ -21,6 +22,9 @@ class Player:
     def add_protection(self, i):
         self.protection += i
 
+    def add_intelligence(self,i):
+        self.intelligence += i
+    
     def add_health(self, i):
         self.health += i
         if self.health > self.max_health:
@@ -45,9 +49,10 @@ class Player:
         typing("Поздравляю! вы повысили уровень, все характеристики выросли.")
         self.lvl += 1
         self.exp = 0
-        self.add_dexterity(1 + int(0.5 * self.lvl))
         self.add_max_health(20)
         self.health = self.max_health
+        self.add_dexterity(1 + int(0.5 * self.lvl))
         self.add_protection(1 + int(0.5 * self.lvl))
         self.add_strenght(1 + int(0.5 * self.lvl))
+        self.add_intelligence(1 + int(0.5 * self.lvl))
     
