@@ -34,8 +34,7 @@ class Player:
         if self.health > self.max_health:
             self.health = self.max_health
         elif self.health <= 0:
-            typing("Вы погибли!")
-            input()
+            self.death()
     
     def set_name(self, name):
         self.name = name
@@ -61,3 +60,7 @@ class Player:
         self.add_intelligence(1 + int(0.5 * self.lvl))
         self.add_accuaracy(1 + int(0.5 * self.lvl))
     
+    def death(self):
+        typing("Вы погибли!")
+        input()
+        input()
