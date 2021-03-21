@@ -1,6 +1,6 @@
+from typing import typing
 import Fight, Adventures
 import sys
-from typing import typing
 sys.path.append('class')
 import mage, warrior, assasin
 

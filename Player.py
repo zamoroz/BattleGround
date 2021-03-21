@@ -7,7 +7,7 @@ class Player:
         self.dexterity = 5
         self.protection = 5
         self.intelligence = 5
-        self.accuracy = 5
+        self.accuaracy = 5
         self.max_health = 100
         self.health = self.max_health
         self.name = ""
@@ -26,8 +26,8 @@ class Player:
     def add_intelligence(self, i):
         self.intelligence += i
     
-    def add_accuracy(self, i):
-        self.accuracy += i
+    def add_accuaracy(self, i):
+        self.accuaracy += i
 
     def add_health(self, i):
         self.health += i
@@ -59,5 +59,5 @@ class Player:
         self.add_protection(1 + int(0.5 * self.lvl))
         self.add_strenght(1 + int(0.5 * self.lvl))
         self.add_intelligence(1 + int(0.5 * self.lvl))
-        self.add_accuracy(1 + int(0.5 * self.lvl))
+        self.add_accuaracy(1 + int(0.5 * self.lvl))
     
