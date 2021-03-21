@@ -2,7 +2,7 @@ from randomEnemy import randomEnemy, randomSkill
 from random import randint
 from typing import typing
 
-class Fight:
+class Fight():
     
     def __init__(self, player, enemy=None):
         self.player = player
