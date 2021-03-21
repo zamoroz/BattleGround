@@ -47,7 +47,7 @@ class mage(Player):
             typing("Не хватает маны.")
         
     def __str__(self):
-        characteristics = { "Имя": self.name, "Уровень": self.lvl, "Здоровье": self.health, "Мана": self.mana, "Сила": self.strenght, "Ловкость": self.dexterity, "Интелект":self.intelligence, "Защита": self.protection, "Опыта до уровня": 100-self.exp}
+        characteristics = { "Имя": self.name, "Уровень": self.lvl, "Здоровье": self.health, "Мана": self.mana, "Сила": self.strenght, "Ловкость": self.dexterity, "Точность": self.accuracy, "Интелект":self.intelligence, "Защита": self.protection, "Опыта до уровня": 100-self.exp}
         out = ''
         for i in characteristics:
             out += i + ': ' + str(characteristics.get(i)) + '\n'
