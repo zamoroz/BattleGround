@@ -22,7 +22,7 @@ class Adventures():
     def lair(self):
         count = randint(1,10)
         lst = enemyList(self.player.lvl, count)
-        typing("Во время своих путешествий ты набрел на логово монстра " + lst[0].name + ".")
+        typing("Во время своих путешествий ты набрел на логово монстра типа " + lst[0].type + ".")
         typing("Здесь обитает " + str(count) + " монстров.")
         def solve_request():
             typing("Что будем делать?")

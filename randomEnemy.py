@@ -38,3 +38,5 @@ def enemyList(lvl, count):
     if enemy.type == "Антропоморф":
         for i in range(count):
             lst.append(anthropomorph.anthropomorph(lvl))
+    
+    return lst
