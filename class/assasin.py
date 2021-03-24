@@ -25,14 +25,14 @@ class assasin(Player):
 
     def skill1(self):
         typing("Вы бьете врага.")
-        damage = 5 + self.strenght
+        damage = 10 + self.strenght
         self.add_energy(10)
         return damage
     
     def skill2(self):
         if self.energy >= 15:
             typing("Вы наносите сильную атаку.")
-            damage = 10 + self.strenght
+            damage = 15 + self.strenght
             self.add_energy(-15)
             return damage
         else:

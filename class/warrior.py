@@ -25,15 +25,15 @@ class warrior(Player):
 
     def skill1(self):
         typing("Вы бьете врага.")
-        damage = 5 + self.strenght
+        damage = 10 + self.strenght
         self.add_rage(10)
         return damage
     
     #удар тратит ярость и накапливает
     def skill2(self):
-        if self.rage >= 15:
+        if self.rage >= 20:
             typing("Вы наносите сильную атаку.")
-            damage = 10 + self.strenght
+            damage = 15 + self.strenght
             self.add_rage(-10)
             return damage
         else:

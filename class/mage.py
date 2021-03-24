@@ -35,7 +35,7 @@ class mage(Player):
     def skill2(self):
         if self.mana >= 10:
             typing("Вы бросаете во врага малый " + choice(self.elements) + " шар.")
-            damage = 10 + self.intelligence
+            damage = 15 + self.intelligence
             self.add_mana(-10)
             return damage
         else:
@@ -44,7 +44,7 @@ class mage(Player):
     def skill3(self):
         if self.mana >= 20:
             typing("Вы бросаете во врага " + choice(self.elements) + " шар.")
-            damage = 20 + self.intelligence
+            damage = 25 + self.intelligence
             self.add_mana(-20)
             return damage
         else:
