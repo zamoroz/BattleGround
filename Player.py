@@ -10,12 +10,9 @@ class Player():
         self.accuaracy = 5
         self.max_health = 100
         self.health = self.max_health
-        self.max_shield = 100
-        self.shield=0
         self.name = ""
         self.exp = 0
         self.lvl = 0
-        self.money = 0
 
     def add_strenght(self, i):
         self.strenght += i
@@ -25,9 +22,6 @@ class Player():
     
     def add_protection(self, i):
         self.protection += i
-
-    def add_shield(self, i):
-        self.shield += 5*i
 
     def add_intelligence(self, i):
         self.intelligence += i
@@ -54,19 +48,12 @@ class Player():
     def add_max_health(self, i):
         self.max_health += i
     
-    def add_max_protection(self, i):
-        self.max_protection += i
-    
-    def add_money(self, i):
-        self.money += i    
-    
     def levelUp(self):
         typing("Поздравляю! вы повысили уровень, все характеристики выросли.")
         self.lvl += 1
         self.exp = 0
         self.add_max_health(20)
         self.health = self.max_health
-        self.add_max_protection(5)
         self.add_dexterity(1 + int(0.5 * self.lvl))
         self.add_protection(1 + int(0.5 * self.lvl))
         self.add_strenght(1 + int(0.5 * self.lvl))
