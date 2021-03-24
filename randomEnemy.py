@@ -23,3 +23,18 @@ def randomSkill(enemy):
         return enemy.skill2()
     if skill == 3:
         return enemy.skill3()
+
+def enemyList(lvl, count):
+    enemy = randomEnemy(lvl)
+    lst = []
+    if enemy.type == "Зверь":
+        for i in range(count):
+            lst.append(beast.beast(lvl))
+
+    if enemy.type == "Дракон":
+        for i in range(count):
+            lst.append(dragon.dragon(lvl))
+    
+    if enemy.type == "Антропоморф":
+        for i in range(count):
+            lst.append(anthropomorph.anthropomorph(lvl))

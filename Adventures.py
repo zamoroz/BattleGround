@@ -1,7 +1,7 @@
 from random import randint
 from typing import typing
 import Fight
-from randomEnemy import randomEnemy
+from randomEnemy import enemyList
 
 class Adventures():
 
@@ -21,7 +21,8 @@ class Adventures():
 
     def lair(self):
         count = randint(1,10)
-        typing("Во время своих путешествий ты набрел на логово монстров.")
+        lst = enemyList(self.player.lvl, count)
+        typing("Во время своих путешествий ты набрел на логово монстра " + lst[0].name + ".")
         typing("Здесь обитает " + str(count) + " монстров.")
         def solve_request():
             typing("Что будем делать?")
@@ -32,9 +33,8 @@ class Adventures():
             solves = ['1', '2', '3']
             if solve in solves:
                 if solve == '1':
-                    for i in range(count):
-                        new_enemy = randomEnemy(self.player.lvl)
-                        Fight.Fight(self.player, new_enemy)
+                    for i in lst:
+                        Fight.Fight(self.player, i)
                     self.reward()
                     return
                 if solve == '2':
