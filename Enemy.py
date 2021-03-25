@@ -1,4 +1,4 @@
-from random import randint
+from random import randint, choice
 
 class Enemy():
     
@@ -24,3 +24,13 @@ class Enemy():
         for i in characteristics:
             out += i + ': ' + str(characteristics.get(i)) + '\n'
         return out
+    
+    def randomSkill(self):
+        skills = [1, 2, 3]
+        skill = choice(skills)
+        if skill == 1:
+            return self.skill1()
+        if skill == 2:
+            return self.skill2()
+        if skill == 3:
+            return self.skill3()

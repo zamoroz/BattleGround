@@ -20,8 +20,24 @@ class assasin(Player):
         self.add_dexterity(1)
         self.add_strenght(1)
 
+    def skills(self):
+        print("1) Обычная атака. \n2) Сильная атака. \n3) Очень сильная атака. \n4) Подробнее")
+        answer = input(">")
+        answers = ['1', '2', '3', '4']
+        if answer in answers:
+            if answer == '1':
+                return self.skill1()
+            if answer == '2':
+                return self.skill2()
+            if answer == '3':
+                return self.skill3()
+            if answer == '4':
+                print(self.skill_description())
+                input("Назад")
+                return self.skills()
+
     def skill_description(self):
-        return "1) Обычная атака. \n2) Сильная атака. \n3)Очень сильная атака"
+        return "1) Обычная атака накапливает энергию, низкий урон. \n2) Сильная атака тратит 15 энергии, средний урон. \n3) Очень сильная атака тратит 25 энергии, большой урон "
 
     def skill1(self):
         typing("Вы бьете врага.")
@@ -36,7 +52,7 @@ class assasin(Player):
             self.add_energy(-15)
             return damage
         else:
-            typing("Не хватает ярости.")
+            typing("Не хватает энергии.")
 
     def skill3(self):
         if self.energy >= 25:
@@ -45,7 +61,7 @@ class assasin(Player):
             self.add_energy(-25)
             return damage
         else:
-            typing("Не хватает ярости.")
+            typing("Не хватает энергии.")
 
     def short_info(self):
         return "Здоровье: " + str(self.health) + "\nЭнергия: " + str(self.energy)

@@ -14,16 +14,6 @@ def randomEnemy(lvl):
     if enemy == 3:
         return dragon.dragon(lvl)
 
-def randomSkill(enemy):
-    skills = [1, 2, 3]
-    skill = choice(skills)
-    if skill == 1:
-        return enemy.skill1()
-    if skill == 2:
-        return enemy.skill2()
-    if skill == 3:
-        return enemy.skill3()
-
 def enemyList(lvl, count):
     enemy = randomEnemy(lvl)
     lst = []

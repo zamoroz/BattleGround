@@ -1,6 +1,6 @@
-from randomEnemy import randomEnemy, randomSkill
-from random import randint
+from randomEnemy import randomEnemy
 from typing import typing
+from random import randint
 
 class Fight():
     
@@ -22,23 +22,17 @@ class Fight():
             typing(enemy.short_info())
             print("-"*30)
             typing("Как будем атаковать?")
-            print(player.skill_description())
-            answer = input(">")
-            answers = ['1', '2', '3']
-            if answer in answers:
-                if answer == '1':
-                    self.hit(player, enemy, player.skill1())
-                if answer == '2':
-                    self.hit(player, enemy, player.skill2())
-                if answer == '3':
-                    self.hit(player, enemy, player.skill3())
-            else:
+            damage = self.player.skills()
+            if damage is None:
                 typing("Ты что-то напутал, давай попробуем еще раз.")
                 print("-"*30)
                 request()
+            else:
+                self.hit(self.player, self.enemy, damage)
+
         request()
 
-        self.hit(enemy, player, randomSkill(enemy))
+        self.hit(enemy, player, enemy.randomSkill())
 
         if enemy.health <= 0:
             typing("Вы убили " + enemy.name)

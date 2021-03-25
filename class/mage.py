@@ -24,8 +24,24 @@ class mage(Player):
         self.mana = self.max_mana
         self.add_intelligence(2)
     
+    def skills(self):
+        print("1) Обычная атака. \n2) Сильная атака. \n3) Очень сильная атака. \n4) Подробнее")
+        answer = input(">")
+        answers = ['1', '2', '3', '4']
+        if answer in answers:
+            if answer == '1':
+                return self.skill1()
+            if answer == '2':
+                return self.skill2()
+            if answer == '3':
+                return self.skill3()
+            if answer == '4':
+                print(self.skill_description())
+                input("Назад")
+                return self.skills()
+
     def skill_description(self):
-        return "1) Обычная атака. \n2) Сильная атака. \n3)Очень сильная атака"
+        return "1) Обычная атака не тратит маны, низкий урон. \n2) Сильная атака тратит 10 маны, средний урон. \n3) Очень сильная атака тратит 20 маны, большой урон "
 
     def skill1(self):
         typing("Вы бьете врага.")
