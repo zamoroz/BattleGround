@@ -2,23 +2,26 @@ from random import randint
 from typing import typing
 import Fight
 from randomEnemy import enemyList
+import sys
+sys.path.append('enemies')
+import human
 
 
 class Adventures():
 
-    adventures_list = ["Пещера", "Город", "Логово монстров", "Лагерь разбойников"]
-
     def __init__(self, player):
         self.player = player
-        place = "Логово монстров"
-        if place == "Пещера":
-            self.cave()
-        elif place == "Город":
-            self.__init__(self.player)
-        elif place == "Логово монстров":
+        place = randint(1, 5)
+        if place == 1:
             self.lair()
-        elif place == "Лагерь разбойников":
-            self.camp()
+        elif place == 2:
+            self.__init__(self.player)
+        elif place == 3:
+            self.__init__(self.player)
+        elif place == 4:
+            self.__init__(self.player)
+        elif place == 5:
+            self.unconscious_traveler()
 
     def lair(self):
         count = randint(1,10)
@@ -54,40 +57,49 @@ class Adventures():
         print("2) Поискать что-нибудь ценное у безсознательного путника.")
         print("3) Пройти мимо.")     
         solve = input("> ")
-        solves['1','2','3']
+        solves = ['1','2','3']
         if solve in solves:
             if solve == '1':
                 random_event = randint(1,2)
                 if random_event == 1:
                     print("Вам удалось привести странника в чувства.")
-                    print("Ох, что-то мне стало плохо по пути в город. Кажется я потерял сознания. Спасибо вам, если бы не вы, меня бы загрызли дикие звери!")
+                    typing("Ох, что-то мне стало плохо по пути в город. Кажется я потерял сознания. Спасибо вам, если бы не вы, меня бы загрызли дикие звери!")
                     print("В качестве благодарности странник дарит вам подарок:")
-                    #функция получения рандомной вещи
+                    self.reward()
                 else:
-                    print("ЗАСАДА! На вас напали рабойники!")
-                    #драка с разбойниками
+                    typing("ЗАСАДА! На вас напали рабойники!")
+                    count = randint(2,6)
+                    typing("Здесь " + count + " разбойников.")
+                    for i in range(count):
+                        enemy = human.human(self.player.lvl)
+                        enemy.name = "Разбойник"
+                        Fight.Fight(self.player, enemy)
             if solve == '2':
-                random_event = randint(1,4)
+                random_event = randint(1,3)
                 if random_event == 1:
                     print("Вам удалось найти ценную вещь и вы продолжили приключение.")
-                    #функция получения рандомной вещи
+                    self.reward()
                 if random_event == 2:
                     print("Вы ничего ценного не нашли и продолжили приключени.")
                 if random_event == 3:
                     print("О нет, вы разбудили путника!")
-                    print("Что это вы делаете??? ГРАБИТЕЛЬ!!!")
-                    #драка с путников
+                    typing("Что это вы делаете??? ГРАБИТЕЛЬ!!!")
+                    enemy = human.human(self.player.lvl)
+                    enemy.name = "Путник"
+                    Fight.Fight(self.player, enemy)
                 else:
-                    print("ЗАСАДА! На вас напали рабойники!")
-                    #драка с разбойниками
+                    count = randint(2,6)
+                    typing("Здесь " + count + " разбойников.")
+                    for i in range(count):
+                        enemy = human.human(self.player.lvl)
+                        enemy.name = "Разбойник"
+                        Fight.Fight(self.player, enemy)
             if solve == '3':
                 return
         else:
             typing("Ты что-то напутал, давай попробуем еще раз.")
             print("-"*30)
-            unconscious_traveler()
-    unconscious_traveler()       
-    
+            self.unconscious_traveler()       
     
     def reward(self):
         pass
