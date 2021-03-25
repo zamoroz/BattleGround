@@ -12,7 +12,7 @@ class main():
         typing("Лоцман достал перо и пергамент из путевой сумки и приготовился записывать:")
         typing("Ваше имя, сэр?")
         self.player_name = (input("> "))
-        typing("Лоцман внес "self.player_name + " в пергамен.")   
+        typing("Лоцман внес " + self.player_name + " в пергамен.")   
         self.requests()
         self.menu()
 
