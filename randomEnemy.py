@@ -8,7 +8,7 @@ import beast
 import dragon
 
 def randomEnemy(lvl):
-    enemys = [1, 2, 3]
+    enemys = [1, 2, 3, 1, 2]
     enemy = choice(enemys)
     if enemy == 1:
         return anthropomorph.anthropomorph(lvl)
