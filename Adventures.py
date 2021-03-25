@@ -69,7 +69,7 @@ class Adventures():
                 else:
                     typing("ЗАСАДА! На вас напали рабойники!")
                     count = randint(2,6)
-                    typing("Здесь " + count + " разбойников.")
+                    typing("Здесь " + str(count) + " разбойников.")
                     for i in range(count):
                         enemy = human.human(self.player.lvl)
                         enemy.name = "Разбойник"
@@ -89,7 +89,7 @@ class Adventures():
                     Fight.Fight(self.player, enemy)
                 else:
                     count = randint(2,6)
-                    typing("Здесь " + count + " разбойников.")
+                    typing("Здесь " + str(count) + " разбойников.")
                     for i in range(count):
                         enemy = human.human(self.player.lvl)
                         enemy.name = "Разбойник"
