@@ -3,6 +3,7 @@ from typing import typing
 import Fight
 from randomEnemy import enemyList
 
+
 class Adventures():
 
     adventures_list = ["Пещера", "Город", "Логово монстров", "Лагерь разбойников"]
@@ -46,6 +47,47 @@ class Adventures():
                 print("-"*30)
                 solve_request()
         solve_request()
+    
+    def unconscious_traveler(self):
+        typing("Следуя зову приключений, ты натыкаешься на лежащего без сознания человека. Что будешь делать?")
+        print("1) Осмотреть и попытаться помочь.")
+        print("2) Поискать что-нибудь ценное у безсознательного путника.")
+        print("3) Пройти мимо.")     
+        solve = input("> ")
+        solves['1','2','3']
+        if solve in solves:
+            if solve == '1':
+                random_event = randint(1,2)
+                if random_event == 1:
+                    print("Вам удалось привести странника в чувства.")
+                    print("Ох, что-то мне стало плохо по пути в город. Кажется я потерял сознания. Спасибо вам, если бы не вы, меня бы загрызли дикие звери!")
+                    print("В качестве благодарности странник дарит вам подарок:")
+                    #функция получения рандомной вещи
+                else:
+                    print("ЗАСАДА! На вас напали рабойники!")
+                    #драка с разбойниками
+            if solve == '2':
+                random_event = randint(1,4)
+                if random_event == 1:
+                    print("Вам удалось найти ценную вещь и вы продолжили приключение.")
+                    #функция получения рандомной вещи
+                if random_event == 2:
+                    print("Вы ничего ценного не нашли и продолжили приключени.")
+                if random_event == 3:
+                    print("О нет, вы разбудили путника!")
+                    print("Что это вы делаете??? ГРАБИТЕЛЬ!!!")
+                    #драка с путников
+                else:
+                    print("ЗАСАДА! На вас напали рабойники!")
+                    #драка с разбойниками
+            if solve == '3':
+                return
+        else:
+            typing("Ты что-то напутал, давай попробуем еще раз.")
+            print("-"*30)
+            unconscious_traveler()
+    unconscious_traveler()       
+    
     
     def reward(self):
         pass
