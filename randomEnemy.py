@@ -1,8 +1,11 @@
-from random import choice
 import sys
-sys.path.append("enemys")
+from random import choice
 
-import anthropomorph, beast, dragon
+sys.path.append("enemies")
+
+import anthropomorph
+import beast
+import dragon
 
 def randomEnemy(lvl):
     enemys = [1, 2, 3]
