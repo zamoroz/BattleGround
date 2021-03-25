@@ -1,4 +1,5 @@
 from typing import typing
+import sys
 
 class Player():
 
@@ -63,4 +64,4 @@ class Player():
     def death(self):
         typing("Вы погибли!")
         input()
-        input()
+        sys.exit()
