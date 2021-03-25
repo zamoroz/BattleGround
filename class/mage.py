@@ -17,7 +17,10 @@ class mage(Player):
         self.mana += i
         if self.mana > self.max_mana:
             self.mana = self.max_mana
-    
+            
+    def add_max_mana(self, i):
+        self.max_mana += i
+
     def levelUp(self):
         super().levelUp()
         self.add_max_mana(10)
