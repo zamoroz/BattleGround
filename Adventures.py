@@ -75,19 +75,20 @@ class Adventures():
                         enemy.name = "Разбойник"
                         Fight.Fight(self.player, enemy)
             if solve == '2':
-                random_event = randint(1,3)
+                random_event = randint(1,4)
                 if random_event == 1:
                     print("Вам удалось найти ценную вещь и вы продолжили приключение.")
                     self.reward()
-                if random_event == 2:
+                elif random_event == 2:
                     print("Вы ничего ценного не нашли и продолжили приключени.")
-                if random_event == 3:
+                elif random_event == 3:
                     print("О нет, вы разбудили путника!")
                     typing("Что это вы делаете??? ГРАБИТЕЛЬ!!!")
                     enemy = human.human(self.player.lvl)
                     enemy.name = "Путник"
                     Fight.Fight(self.player, enemy)
                 else:
+                    typing("ЗАСАДА! На вас напали рабойники!")
                     count = randint(2,6)
                     typing("Здесь " + str(count) + " разбойников.")
                     for i in range(count):
