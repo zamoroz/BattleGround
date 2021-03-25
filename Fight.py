@@ -55,7 +55,7 @@ class Fight():
     def direction(self):
         player = self.player
         enemy = self.enemy
-        typing("На тебя напал монстр "+ enemy.name +".")
+        typing("На тебя напал "+ enemy.name +".")
         typing("Характеристики врага:")
         print(enemy)
         print("-"*30)
@@ -74,7 +74,7 @@ class Fight():
                         typing("Убежать не удалось, придется сражаться...")
                         self.fight()
                     else:
-                        typing("Ты убежал от монстра "+ enemy.name + ".")
+                        typing("Ты убежал от "+ enemy.name + ".")
                         print("-"*30)
                         player.add_exp(5)
             else:
