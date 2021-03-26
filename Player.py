@@ -42,6 +42,8 @@ class Player():
     
     def add_exp(self, i):
         self.exp += i
+        typing("Вы получиили "+ str(i) + " опыта." )
+        print("-"*30)
         if self.exp >= 100:
             self.exp = 0
             self.levelUp()
