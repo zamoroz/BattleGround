@@ -3,13 +3,13 @@ from random import randint, choice
 class Enemy():
     
     def __init__(self, lvl):
-        self.lvl = randint(lvl-3, lvl)
+        self.lvl = randint(lvl-2, lvl+2)
         if self.lvl < 0:
             self.lvl = 0
-        self.strenght = randint(1,5) + self.lvl
-        self.dexterity = randint(1,5) + self.lvl
-        self.accuaracy = randint(1,5) + self.lvl
-        self.protection = randint(1, 5) + self.lvl
+        self.strenght = randint(3,5) + self.lvl
+        self.dexterity = randint(3,5) + self.lvl
+        self.accuaracy = randint(3,5) + self.lvl
+        self.protection = randint(3, 5) + self.lvl
         self.health = 20 + randint(1,10) + self.lvl*10
         
     def add_health(self, i):
