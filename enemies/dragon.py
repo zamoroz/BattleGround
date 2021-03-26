@@ -14,6 +14,7 @@ class dragon(Enemy):
         self.type = "Дракон"
         self.accuaracy += 2
         self.strenght += 2
+        self.health += 20
     
     def skill1(self):
         typing(self.name + " наносит удар лапой.")
