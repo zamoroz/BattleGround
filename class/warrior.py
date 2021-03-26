@@ -54,7 +54,7 @@ class warrior(Player):
             return damage
         else:
             typing("Не хватает ярости.")
-            return 0
+            return
 
     def skill3(self):
         if self.rage >= 25:
@@ -64,7 +64,7 @@ class warrior(Player):
             return damage
         else:
             typing("Не хватает ярости.")
-            return 0
+            return
 
     def short_info(self):
         return "Здоровье: " + str(self.health) + "\nЯрость: " + str(self.rage)

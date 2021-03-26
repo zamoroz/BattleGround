@@ -52,7 +52,7 @@ class Player():
     def levelUp(self):
         typing("Поздравляю! вы повысили уровень, все характеристики выросли.")
         self.lvl += 1
-        self.exp = 0
+        self.exp -= 100
         self.add_max_health(20)
         self.health = self.max_health
         self.add_dexterity(1 + int(0.5 * self.lvl))

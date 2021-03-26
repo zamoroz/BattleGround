@@ -59,6 +59,7 @@ class mage(Player):
             return damage
         else:
             typing("Не хватает маны.")
+            return
 
     def skill3(self):
         if self.mana >= 20:
@@ -68,6 +69,7 @@ class mage(Player):
             return damage
         else:
             typing("Не хватает маны.")
+            return
 
     def short_info(self):
         return "Здоровье: " + str(self.health) + "\nМана: " + str(self.mana)
