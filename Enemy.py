@@ -6,10 +6,10 @@ class Enemy():
         self.lvl = randint(lvl-2, lvl+2)
         if self.lvl < 0:
             self.lvl = 0
-        self.strenght = randint(3,5) + self.lvl
-        self.dexterity = randint(3,5) + self.lvl
-        self.accuaracy = randint(3,5) + self.lvl
-        self.protection = randint(3, 5) + self.lvl
+        self.strenght = randint(3,5) + self.lvl * 2
+        self.dexterity = randint(3,5) + self.lvl * 2
+        self.accuaracy = randint(3,5) + self.lvl * 2
+        self.protection = randint(3, 5) + self.lvl * 2
         self.health = 20 + randint(1,10) + self.lvl*10
         
     def add_health(self, i):

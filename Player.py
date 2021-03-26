@@ -55,11 +55,11 @@ class Player():
         self.exp -= 100
         self.add_max_health(20)
         self.health = self.max_health
-        self.add_dexterity(1 + int(0.5 * self.lvl))
-        self.add_protection(1 + int(0.5 * self.lvl))
-        self.add_strenght(1 + int(0.5 * self.lvl))
-        self.add_intelligence(1 + int(0.5 * self.lvl))
-        self.add_accuaracy(1 + int(0.5 * self.lvl))
+        self.add_dexterity(1)
+        self.add_protection(1)
+        self.add_strenght(1)
+        self.add_intelligence(1)
+        self.add_accuaracy(1)
     
     def death(self):
         typing("Вы погибли!")
