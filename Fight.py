@@ -32,8 +32,8 @@ class Fight():
 
         request()
 
-        self.hit(enemy, player, enemy.randomSkill())
-
+        if enemy.health > 0:
+            self.hit(enemy, player, enemy.randomSkill())
         if enemy.health <= 0:
             typing("Вы убили " + enemy.name)
             print("-"*30)
