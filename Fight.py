@@ -42,10 +42,10 @@ class Fight():
         self.fight()
 
     def hit(self, attacker, defender, damage):
-        if attacker.accuaracy < defender.dexterity and randint(1,10) < 5:
+        if attacker.accuaracy < defender.dexterity and randint(1,2) < 2:
             typing("Промах.")
             damage = 0
-        elif attacker.strenght < defender.protection and randint(1,10) < 5:
+        elif attacker.strenght < defender.protection and randint(1,2) < 2:
             typing("Заблокированано.")
             damage = 0
         defender.add_health(-damage)
