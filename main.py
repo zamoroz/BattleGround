@@ -1,8 +1,8 @@
 from typing import typing
 import Fight, Adventures
-import sys
-sys.path.append('class')
-import mage, warrior, assasin
+import classes.mage as mage
+import classes.warrior as warrior
+import classes.assasin as assasin
 
 class main():
 

@@ -1,5 +1,3 @@
-import sys
-sys.path.append('../')
 from random import choice
 from Player import Player
 from typing import typing

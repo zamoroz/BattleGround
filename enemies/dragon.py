@@ -1,5 +1,3 @@
-import sys
-sys.path.append('../')
 from typing import typing
 from Enemy import Enemy
 from random import choice

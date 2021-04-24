@@ -2,9 +2,7 @@ from random import randint
 from typing import typing
 import Fight
 from randomEnemy import enemyList
-import sys
-sys.path.append('enemies')
-import human
+import enemies.human as human
 
 
 class Adventures():

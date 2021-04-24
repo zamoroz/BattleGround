@@ -3,7 +3,7 @@ from random import randint, choice
 class Enemy():
     
     def __init__(self, lvl):
-        self.lvl = randint(lvl-2, lvl+2)
+        self.lvl = randint(lvl-2, lvl)
         if self.lvl < 0:
             self.lvl = 0
         self.strenght = randint(3,5) + self.lvl * 2
