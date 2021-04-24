@@ -1,8 +1,6 @@
 from typing import typing
 import Fight, Adventures
-import classes.mage as mage
-import classes.warrior as warrior
-import classes.assasin as assasin
+from class_choice import class_choice
 
 class main():
 
@@ -13,9 +11,10 @@ class main():
         typing("Приветствую вас господин и добро пожаловать в Адвентовиль! Меня зовут Сайрокс, я служащий учетной службы. Чтобы пустить вас в город, мне нобходимо уточнить у вас некоторые детали.")
         typing("Лоцман достал перо и пергамент из путевой сумки и приготовился записывать:")
         typing("Ваше имя, сэр?")
-        self.player_name = (input("> "))
-        typing("Лоцман внес " + self.player_name + " в пергамен.")   
+        player_name = (input("> "))
+        typing("Лоцман внес " + player_name + " в пергамен.")   
         self.requests()
+        self.player.set_name(player_name)
         self.menu()
 
     def requests(self):
@@ -23,19 +22,8 @@ class main():
         print("1) Маг")
         print("2) Воин")
         print("3) Убийца")
-        race = input("> ")
-        races = ["1", "2", "3"]
-        if race in races:
-            if race == "1":
-                self.player = mage.mage()
-                self.player.set_name(self.player_name)
-            if race == "2":
-                self.player = warrior.warrior()
-                self.player.set_name(self.player_name)
-            if race == "3":
-                self.player = assasin.assasin()
-                self.player.set_name(self.player_name)
-        else: 
+        self.player = class_choice(input("> "))       
+        if self.player is None:
             typing("Погодите... вы меня разыгрываете? Давайте попробуем еще раз:")
             print("-"*30)
             self.requests()
