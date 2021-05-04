@@ -1,20 +1,13 @@
-import Enemy
+from randomEnemy import randomEnemy
+from typing import typing
 from random import randint
-import sys, time
 
-def typing(lst):
-    for character in lst:
-        sys.stdout.write(character)
-        sys.stdout.flush()
-        time.sleep(0.04)
-    print("")
-
-class Fight:
+class Fight():
     
     def __init__(self, player, enemy=None):
         self.player = player
         if enemy is None:
-            self.enemy = Enemy.Enemy(self.player.lvl)
+            self.enemy = randomEnemy(self.player.lvl)
         else:
             self.enemy = enemy
         self.direction()
@@ -23,66 +16,69 @@ class Fight:
         player = self.player
         enemy = self.enemy
 
-        damage = randint(1, player.strenght) - randint(1, enemy.protection)
-        if damage < 1: damage = 1
-        enemy.add_health(-damage)
-        print("-"*30)
-        typing("Ты нанес " + str(damage) + " урона врагу.")
-        typing("Осталось " + str(enemy.health))
-
-        damage = randint(1, enemy.strenght) - randint(1, player.protection)
-        if damage < 1: damage = 1
-        player.add_health(-damage)
-        print("-"*30)
-        typing(enemy.name + " нанес " + str(damage) + " урона тебе.")
-        typing("Отсалось " + str(player.health))
-
-        if player.health <= 0:
+        def request():
+            typing(player.short_info())
             print("-"*30)
-            typing("Вы погибли.")
-            input()
+            typing(enemy.short_info())
+            print("-"*30)
+            typing("Как будем атаковать?")
+            damage = self.player.skills()
+            if damage is None:
+                typing("Ты что-то напутал, давай попробуем еще раз.")
+                print("-"*30)
+                request()
+            else:
+                self.hit(self.player, self.enemy, damage)
 
+        request()
+
+        if enemy.health > 0:
+            self.hit(enemy, player, enemy.randomSkill())
         if enemy.health <= 0:
             typing("Вы убили " + enemy.name)
             print("-"*30)
             player.add_exp(30)
-            if player.exp >= 100:
-                player.levelUp()
             return
         self.fight()
+
+    def hit(self, attacker, defender, damage):
+        if attacker.accuaracy < defender.dexterity and randint(1,2) < 2:
+            typing("Промах.")
+            damage = 0
+        elif attacker.strenght < defender.protection and randint(1,2) < 2:
+            typing("Заблокированано.")
+            damage = 0
+        defender.add_health(-damage)
+        print("Нанесено урона " + str(damage))
+        print("-"*30)
 
     def direction(self):
         player = self.player
         enemy = self.enemy
-        typing("На тебя напал монстр "+ enemy.name +".")
+        typing("На тебя напал "+ enemy.name +".")
         typing("Характеристики врага:")
-        typing("Сила " + str(enemy.strenght))
-        typing("Точность " + str(enemy.accuaracy))
-        typing("Защита " + str(enemy.protection))
-        typing("Здоровье " + str(enemy.health))
+        print(enemy)
         print("-"*30)
-        def solve_request():
+        def request():
             typing("Что будешь делать?")
             print("1) Сражаться")
             print("2) Бежать")
-            solve = input("> ")
-            solves = ['1', '2']
-            if solve in solves:
-                if solve == "1":
+            answer = input("> ")
+            answers = ['1', '2']
+            if answer in answers:
+                if answer == "1":
                     typing("Начинается бой с " + enemy.name)
                     self.fight()
-                elif solve == "2":
-                    if player.dexterity <= enemy.accuaracy:
+                elif answer == "2":
+                    if randint(1,10) < 8:
                         typing("Убежать не удалось, придется сражаться...")
                         self.fight()
                     else:
-                        typing("Ты убежал от монстра "+ enemy.name + ".")
+                        typing("Ты убежал от "+ enemy.name + ".")
                         print("-"*30)
                         player.add_exp(5)
-                        if player.exp >= 100:
-                            player.levelUp()
             else:
                 typing("Ты что-то напутал, давай попробуем еще раз.")
                 print("-"*30)
-                solve_request()
-        solve_request()
+                request()
+        request()
