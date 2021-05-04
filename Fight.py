@@ -31,13 +31,23 @@ class Fight():
                 self.hit(self.player, self.enemy, damage)
 
         request()
-
+        getTreasure = 0
         if enemy.health > 0:
             self.hit(enemy, player, enemy.randomSkill())
         if enemy.health <= 0:
             typing("Вы убили " + enemy.name)
             print("-"*30)
             player.add_exp(30)
+            print('Вы выбили :',enemy.treasure)
+            print('Забрать?')
+            getTreasure = int(input())
+            if getTreasure == 0:
+                print('Вы оставили добычу')
+            elif getTreasure == 1 :
+                for item in enemy.treasure:
+                    player.inventory.add_item(item)
+            else:
+                print('ты по-моему перепутал')
             return
         self.fight()
 

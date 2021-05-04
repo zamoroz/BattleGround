@@ -1,5 +1,8 @@
 from random import randint, choice
 
+
+import Item
+
 class Enemy():
     
     def __init__(self, lvl):
@@ -11,7 +14,7 @@ class Enemy():
         self.accuaracy = randint(3,5) + self.lvl * 2
         self.protection = randint(3, 5) + self.lvl * 2
         self.health = 20 + randint(1,10) + self.lvl*10
-        
+        self.treasure = ['abc']
     def add_health(self, i):
         self.health += i
 
@@ -34,3 +37,15 @@ class Enemy():
             return self.skill2()
         if skill == 3:
             return self.skill3()
+
+    def getrandomtreause(self):
+        self.treasure = []
+        quantOfTreaure = randint(1,3)
+        for i in range(quantOfTreaure):
+            self.treasure.append(Item.Item())
+
+
+
+
+
+

@@ -13,6 +13,7 @@ class dragon(Enemy):
         self.accuaracy += 2
         self.strenght += 2
         self.health += 20
+        self.treasure = self.getrandomtreause()
     
     def skill1(self):
         typing(self.name + " наносит удар лапой.")
