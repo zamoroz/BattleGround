@@ -38,14 +38,16 @@ class Fight():
             typing("Вы убили " + enemy.name)
             print("-"*30)
             player.add_exp(30)
+            enemy.getrandomtreause()
             print('Вы выбили :',enemy.treasure)
-            print('Забрать?')
+            print('Забрать? 0 - нет, 1 - да')
             getTreasure = int(input())
             if getTreasure == 0:
                 print('Вы оставили добычу')
             elif getTreasure == 1 :
                 for item in enemy.treasure:
                     player.inventory.add_item(item)
+                print(player.inventory)
             else:
                 print('ты по-моему перепутал')
             return

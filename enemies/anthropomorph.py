@@ -10,7 +10,6 @@ class anthropomorph(Enemy):
         super().__init__(lvl)
         self.name = choice(self.enemy_list)
         self.type = "Антропоморф"
-        self.treasure = self.getrandomtreause()
     def skill1(self):
         typing(self.name + " наносит удар.")
         damage = 10 + self.strenght

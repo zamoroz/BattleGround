@@ -10,7 +10,6 @@ class beast(Enemy):
         super().__init__(lvl)
         self.name = choice(self.enemy_list)
         self.type = "Зверь"
-        self.treasure = self.getrandomtreause()
     
     def skill1(self):
         typing(self.name + " наносит удар.")
