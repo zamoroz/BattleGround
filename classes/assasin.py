@@ -7,6 +7,7 @@ class assasin(Player):
         super().__init__()
         self.max_energy = 100
         self.energy = self.max_energy
+        self.type = 'Убийца'
     
     def add_energy(self, i):
         self.energy += i

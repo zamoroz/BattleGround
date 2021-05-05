@@ -7,6 +7,7 @@ class warrior(Player):
         super().__init__()
         self.max_rage = 100
         self.rage = 0
+        self.type = 'Воин'
 
     def add_rage(self, i):
         self.rage += i

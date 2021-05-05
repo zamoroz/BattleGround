@@ -10,6 +10,7 @@ class mage(Player):
         super().__init__()
         self.max_mana = 100
         self.mana = self.max_mana
+        self.type = 'Маг'
     
     def add_mana(self, i):
         self.mana += i

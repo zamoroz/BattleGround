@@ -29,7 +29,6 @@ class Fight():
                 request()
             else:
                 self.hit(self.player, self.enemy, damage)
-
         request()
 
         if enemy.health > 0:
