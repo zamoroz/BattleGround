@@ -10,7 +10,6 @@ class Fight():
             self.enemy = randomEnemy(self.player.lvl)
         else:
             self.enemy = enemy
-        self.direction()
         
     def fight(self):
         player = self.player

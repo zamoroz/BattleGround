@@ -9,5 +9,7 @@ def menus(player,choise):
         if choise == "2":
             result = Adventures.Adventures(player)
             return result
-        if choise == "3" :
-            return Fight.Fight(player)
+        if choise == "3":
+            fight = Fight.Fight(player)
+            fight.direction()
+            return fight

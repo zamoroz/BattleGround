@@ -36,8 +36,8 @@ class Adventures():
             if solve in solves:
                 if solve == '1':
                     for i in lst:
-                        Fight.Fight(self.player, i)
-                    self.reward()
+                        fight = Fight.Fight(self.player, i)
+                        fight.direction()                        
                     return
                 if solve == '2':
                     self.__init__(self.player)
@@ -63,7 +63,6 @@ class Adventures():
                     print("Вам удалось привести странника в чувства.")
                     typing("Ох, что-то мне стало плохо по пути в город. Кажется я потерял сознания. Спасибо вам, если бы не вы, меня бы загрызли дикие звери!")
                     print("В качестве благодарности странник дарит вам подарок:")
-                    self.reward()
                 else:
                     typing("ЗАСАДА! На вас напали рабойники!")
                     count = randint(2,6)
@@ -71,7 +70,8 @@ class Adventures():
                     for i in range(count):
                         enemy = human.human(self.player.lvl)
                         enemy.name = "Разбойник"
-                        Fight.Fight(self.player, enemy)
+                        fight = Fight.Fight(self.player, enemy)
+                        fight.direction()
             if solve == '2':
                 random_event = randint(1,4)
                 if random_event == 1:
@@ -84,7 +84,8 @@ class Adventures():
                     typing("Что это вы делаете??? ГРАБИТЕЛЬ!!!")
                     enemy = human.human(self.player.lvl)
                     enemy.name = "Путник"
-                    Fight.Fight(self.player, enemy)
+                    fight = Fight.Fight(self.player, enemy)
+                    fight.direction()
                 else:
                     typing("ЗАСАДА! На вас напали рабойники!")
                     count = randint(2,6)
@@ -92,13 +93,11 @@ class Adventures():
                     for i in range(count):
                         enemy = human.human(self.player.lvl)
                         enemy.name = "Разбойник"
-                        Fight.Fight(self.player, enemy)
+                        fight = Fight.Fight(self.player, enemy)
+                        fight.direction()
             if solve == '3':
                 return
         else:
             typing("Ты что-то напутал, давай попробуем еще раз.")
             print("-"*30)
             self.unconscious_traveler()       
-    
-    def reward(self):
-        pass
