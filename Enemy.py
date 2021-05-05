@@ -42,7 +42,7 @@ class Enemy():
         quantOfTreaure = randint(1,3)
         for i in range(quantOfTreaure):
             item = Item.Item()
-            self.treasure.append(item.as_dict())
+            self.treasure.append(item)
 
 
 
