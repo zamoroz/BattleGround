@@ -47,7 +47,6 @@ class Fight():
             elif getTreasure == 1 :
                 for item in enemy.treasure:
                     player.inventory.add_item(item)
-                print(player.inventory)
             else:
                 print('ты по-моему перепутал')
             return

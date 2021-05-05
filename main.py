@@ -46,7 +46,7 @@ class main():
             elif answer == '4':
                 print(self.player.inventory)
             elif answer == '5':
-                if len(self.player.inventory) == 0 :
+                if self.player.inventory is None :
                     print('Твой инвентарь пуст, нечего надеть')
                 else:
                     print(self.player.inventory)
