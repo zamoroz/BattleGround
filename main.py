@@ -33,8 +33,9 @@ class main():
         print("2) Путешевствовать")
         print("3) Искать сражений")
         print("4) Посмотреть инвентарь")
+        print("5) Надеть предметы ")
         answer = input("> ")
-        answers = ['1', '2', '3','4']
+        answers = ['1', '2', '3','4','5']
         if answer in answers:
             if answer == '1':
                 print(self.player)
@@ -44,6 +45,17 @@ class main():
                 Fight.Fight(self.player)
             elif answer == '4':
                 print(self.player.inventory)
+            elif answer == '5':
+                if len(self.player.inventory) == 0 :
+                    print('Твой инвентарь пуст, нечего надеть')
+                else:
+                    print(self.player.inventory)
+                    print('Чего надевать будем?')
+                    selectedItem = int(input())
+                    self.player.equipment.equip(self.player.inventory[selectedItem])
+
+
+
 
         else: 
             typing("Ты что-то напутал, давай попробуем еще раз.")
