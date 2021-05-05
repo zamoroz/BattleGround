@@ -19,13 +19,10 @@ def enemyList(lvl, count):
     if enemy.type == "Зверь":
         for i in range(count):
             lst.append(beast.beast(lvl))
-
     if enemy.type == "Дракон":
         for i in range(count):
             lst.append(dragon.dragon(lvl))
-    
     if enemy.type == "Антропоморф":
         for i in range(count):
             lst.append(anthropomorph.anthropomorph(lvl))
-    
     return lst

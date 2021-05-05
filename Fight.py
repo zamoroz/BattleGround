@@ -1,5 +1,4 @@
 from randomEnemy import randomEnemy
-from typing import typing
 from random import randint
 
 class Fight():
@@ -16,24 +15,31 @@ class Fight():
         enemy = self.enemy
 
         def request():
-            typing(player.short_info())
+            print(player.short_info())
             print("-"*30)
-            typing(enemy.short_info())
+            print(enemy.short_info())
             print("-"*30)
-            typing("Как будем атаковать?")
+            print("Как будем атаковать?")
             damage = self.player.skills()
             if damage is None:
-                typing("Ты что-то напутал, давай попробуем еще раз.")
+                print("Ты что-то напутал, давай попробуем еще раз.")
                 print("-"*30)
                 request()
             else:
-                self.hit(self.player, self.enemy, damage)
+                damage = self.hit(self.player, self.enemy, damage)
+                self.enemy.add_health(-damage)
+                print("Нанесено урона " + str(damage))
+                print("-"*30)
+
         request()
 
         if enemy.health > 0:
-            self.hit(enemy, player, enemy.randomSkill())
+            damage = self.hit(enemy, player, enemy.randomSkill())
+            self.player.add_health(-damage)
+            print("Нанесено урона " + str(damage))
+            print("-"*30)
         if enemy.health <= 0:
-            typing("Вы убили " + enemy.name)
+            print("Вы убили " + enemy.name)
             print("-"*30)
             player.add_exp(30)
             return
@@ -41,42 +47,40 @@ class Fight():
 
     def hit(self, attacker, defender, damage):
         if attacker.accuaracy < defender.dexterity and randint(1,2) < 2:
-            typing("Промах.")
+            print("Промах.")
             damage = 0
         elif attacker.strenght < defender.protection and randint(1,2) < 2:
-            typing("Заблокированано.")
+            print("Заблокированано.")
             damage = 0
-        defender.add_health(-damage)
-        print("Нанесено урона " + str(damage))
-        print("-"*30)
-
+        return damage
+        
     def direction(self):
         player = self.player
         enemy = self.enemy
-        typing("На тебя напал "+ enemy.name +".")
-        typing("Характеристики врага:")
+        print("На тебя напал "+ enemy.name +".")
+        print("Характеристики врага:")
         print(enemy)
         print("-"*30)
         def request():
-            typing("Что будешь делать?")
+            print("Что будешь делать?")
             print("1) Сражаться")
             print("2) Бежать")
             answer = input("> ")
             answers = ['1', '2']
             if answer in answers:
                 if answer == "1":
-                    typing("Начинается бой с " + enemy.name)
+                    print("Начинается бой с " + enemy.name)
                     self.fight()
                 elif answer == "2":
                     if randint(1,10) < 8:
-                        typing("Убежать не удалось, придется сражаться...")
+                        print("Убежать не удалось, придется сражаться...")
                         self.fight()
                     else:
-                        typing("Ты убежал от "+ enemy.name + ".")
+                        print("Ты убежал от "+ enemy.name + ".")
                         print("-"*30)
                         player.add_exp(5)
             else:
-                typing("Ты что-то напутал, давай попробуем еще раз.")
+                print("Ты что-то напутал, давай попробуем еще раз.")
                 print("-"*30)
                 request()
         request()
